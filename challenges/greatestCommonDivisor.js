@@ -20,12 +20,16 @@ const findGCD = (a, b) => {
 console.log(findGCD(12, 18)); //6
 
 const findGCDIterative = (a, b) => {
-  while (b !== 0) {
-    let temp = b;
-    b = a % b;
-    a = temp;
+  let smallest = Math.min(a, b);
+  let gcd = 1;
+  for (let i = 0; i <= smallest; i++) {
+    {
+      if (a % i === 0 && b % i === 0) {
+        gcd = i;
+      }
+    }
   }
-  return a;
+  return gcd;
 };
 
 console.log(findGCDIterative(12, 18)); //6
