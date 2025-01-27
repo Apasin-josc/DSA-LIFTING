@@ -12,7 +12,7 @@
 */
 
 const maxSubarraySum = function (arr, k) {
-  //handling edge cases
+  //handling edge cases// the window is going to be size 3 || k = 3
   if (arr.length < k) return null;
 
   //setting up the window
@@ -20,6 +20,7 @@ const maxSubarraySum = function (arr, k) {
   let maxSum = 0;
 
   //first window sum, using i < k because we want to sum the first k elements
+  //in this case [3,9,1] = 13
   for (let i = 0; i < k; i++) {
     windowSum += arr[i];
   }
