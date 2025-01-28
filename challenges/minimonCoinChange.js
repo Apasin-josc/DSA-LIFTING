@@ -15,4 +15,27 @@
 
         Input: coins = [1], amount = 0
         Output: 0
+        Explanation: No coins are needed to form 0
+
+        Dynamic Programming Approach:
+*/
+
+const coinChange = (coins, amount) => {};
+
+console.log(coinsChange([1, 2, 5], 11)); //3
+
+/*
+  create array to store the min number of coins for each amount
+  --> the amount would be the index
+  --> e.g. minCoins[7] value would be the min coins for the amount 7p
+  --> init index 0 in the array to be 0 (0 coins need to make 0p)
+  --> init all other array values to Infinity to begin with
+
+  loop through each coin
+  --> for each coin, update the array for every amount
+  --> for each coin, initialize i to be the coin value
+  --> update the minCoins array positions when you find lower values
+
+  if the target amount remains unreacheable (Infinity), return -1
+  otherwise, return the valeu at the target amount in the array
 */
