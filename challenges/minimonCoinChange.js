@@ -20,9 +20,23 @@
         Dynamic Programming Approach:
 */
 
-const coinChange = (coins, amount) => {};
+const coinChange = (coins, amount) => {
+  const minCoins = new Array(amount + 1).fill(Infinity);
+  minCoins[0] = 0;
 
-console.log(coinsChange([1, 2, 5], 11)); //3
+  for (let coin of coins) {
+    for (let i = coin; i <= amount; i++) {
+      minCoins[i] = Math.min(minCoins[i], minCoins[i - coin] + 1);
+    }
+  }
+
+  //if the target amount is still Infinity, return -1, it means it's impossible to make the amount
+  return minCoins[amount] === Infinity ? -1 : minCoins[amount];
+};
+
+console.log(coinChange([1, 2, 5], 11)); //3
+//time complexity: O(n * m) where n is the amount and m is the number of coins
+//space complexity: O(n)
 
 /*
   create array to store the min number of coins for each amount
@@ -38,4 +52,13 @@ console.log(coinsChange([1, 2, 5], 11)); //3
 
   if the target amount remains unreacheable (Infinity), return -1
   otherwise, return the valeu at the target amount in the array
+
+
+  example:
+  -->[1,5] 9p
+  -->[0, inf, inf, inf, inf, inf, inf, inf, inf, inf]
+  -->[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  --> we start at 5 
+  --> inside the loop we grab the value at 5 and subtract 5 from it
+  -->[0, 1, 2, 3, 4, 1, 2, 3, 4, 5]
 */
