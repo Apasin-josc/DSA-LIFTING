@@ -18,12 +18,15 @@ Output: false
 const canPlaceFlowers = (flowerBed, n) => {
   //iterating over the array
   for (let i = 0; i < flowerBed.length; i++) {
+    //checking if the current plot is empty and the previous and next plots are also empty
     if (
       flowerBed[i] === 0 &&
       (i === 0 || flowerBed[i - 1] !== 1) &&
       (i === flowerBed.length - 1 || flowerBed[i + 1] !== 1)
     ) {
+      //if there's a free space that respect the conditions, we can plant a flower
       flowerBed[i] += 1;
+      //decrementing the number of flowers we can plant
       n--;
     }
   }
@@ -32,3 +35,6 @@ const canPlaceFlowers = (flowerBed, n) => {
 
 console.log(canPlaceFlowers([1, 0, 0, 0, 1], 1));
 console.log(canPlaceFlowers([1, 0, 0, 0, 1], 2));
+
+//i === 0 || flowerBed[i - 1] !== 1 -> this condition checks if the current plot is the first one or if the previous plot is empty
+//i === flowerBed.length - 1 || flowerBed[i + 1] !== 1 -> this condition checks if the current plot is the last one or if the next plot is empty
