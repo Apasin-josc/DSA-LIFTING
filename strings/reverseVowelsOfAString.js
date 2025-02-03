@@ -1,5 +1,5 @@
 /*
-Given a string s, reverse only all the vowels in the string and return it.
+ 345. Given a string s, reverse only all the vowels in the string and return it.
 The vowels are 'a', 'e', 'i', 'o', and 'u', and they can appear in both lower and upper cases, more than once.
 */
 /**
@@ -7,8 +7,8 @@ The vowels are 'a', 'e', 'i', 'o', and 'u', and they can appear in both lower an
  * @return {string}
  */
 const reverseVowels = function (s) {
-  const vowelsSet = new Set(['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']);
-  let str = s.split('');
+  const vowelsSet = new Set(["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]);
+  let str = s.split("");
   let left = 0;
   let right = s.length - 1;
   while (left < right) {
@@ -24,7 +24,7 @@ const reverseVowels = function (s) {
     left++;
     right--;
   }
-  return str.join('');
+  return str.join("");
 };
 
-console.log(reverseVowels('IceCreAm')); //AceCreIm
+console.log(reverseVowels("IceCreAm")); //AceCreIm

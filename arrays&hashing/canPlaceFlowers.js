@@ -16,6 +16,7 @@ Output: false
 */
 
 const canPlaceFlowers = (flowerBed, n) => {
+  if (n === 0) return true;
   //iterating over the array
   for (let i = 0; i < flowerBed.length; i++) {
     //checking if the current plot is empty and the previous and next plots are also empty
@@ -28,9 +29,10 @@ const canPlaceFlowers = (flowerBed, n) => {
       flowerBed[i] += 1;
       //decrementing the number of flowers we can plant
       n--;
+      if (n === 0) return true;
     }
   }
-  return n === 0 ? true : false;
+  return n === 0;
 };
 
 console.log(canPlaceFlowers([1, 0, 0, 0, 1], 1));
