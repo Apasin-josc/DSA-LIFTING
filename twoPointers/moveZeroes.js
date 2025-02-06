@@ -24,3 +24,11 @@ const moveZeroes = (arr) => {
 };
 
 console.log(moveZeroes([0, 1, 0, 3, 12]));
+
+/* moving arr[i]: 0 and moving arr[j]: 1
+[ 1, 0, 0, 3, 12 ]
+moving arr[i]: 0 and moving arr[j]: 3
+[ 1, 3, 0, 0, 12 ]
+moving arr[i]: 0 and moving arr[j]: 12
+[ 1, 3, 12, 0, 0 ]
+[ 1, 3, 12, 0, 0 ] */
