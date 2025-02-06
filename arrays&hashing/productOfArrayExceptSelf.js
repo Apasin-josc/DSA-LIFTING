@@ -18,7 +18,11 @@ const productExceptSelf = function (nums) {
   }
   let start2 = 1;
   for (let i = nums.length - 1; i >= 0; i--) {
+    //i starts from nums[3] = 4
     //starting from the last element of nums
+    //multiply the current element of res with start2
+    //then multiply start2 with the current element of nums
+    //[24,12,4,1]
     res[i] *= start2;
     start2 *= nums[i];
   }
