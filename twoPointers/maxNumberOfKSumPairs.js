@@ -24,6 +24,7 @@
 */
 
 const maxOperations = (nums, k) => {
+  //two pointers just work when the array is ordered
   nums.sort((a, b) => a - b);
   let i = 0;
   let j = nums.length - 1;
