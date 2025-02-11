@@ -2,6 +2,9 @@
     Sliding Window Pattern
         - instead of having nested loops, we can use a single loop to iterate over the array
         - use a "window" that "slides" across the data ✈
+        -this pattern involves creating a window which can either be an array or number from one position to another
+        -depending on a certain condition, the window either increases or closes (and a new window is created)
+        -very useful for keeping track of a subset of data in an array/string etc.
 
         Example:
         Given an array of integers and a number K, find the maximum sum of a *contiguous subarray* of size K
