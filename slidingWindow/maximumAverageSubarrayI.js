@@ -13,6 +13,25 @@
     Input: nums = [5], k = 1
     Output: 5.00000 */
 
-const findMaxAverage = (nums, k) => {};
+const findMaxAverage = (nums, k) => {
+  if (nums.length < k) return null;
+  let maxSum = 0;
+  let windowSum = 0;
+
+  for (let i = 0; i < k; i++) {
+    windowSum += nums[i];
+  }
+  maxSum = windowSum;
+
+  for (let i = k; i < nums.length; i++) {
+    windowSum = windowSum - nums[i - k] + nums[i];
+    maxSum = Math.max(maxSum, windowSum);
+  }
+  return maxSum / k;
+};
 
 console.log(findMaxAverage([1, 12, -5, -6, 50, 3], 4)); //12.75000
+//                          0,  1,  2,  3,  4, 5
+
+//i = 4         -->     4<6     -->     2 - 1 + 50 = 51     -->     51 / 4 = 12.75
+//i = 5         -->     5<6     -->     51 - 12 + 3 = 42
