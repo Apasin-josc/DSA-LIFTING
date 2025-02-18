@@ -47,3 +47,4 @@ console.log(findDifference([1, 2, 3, 3], [1, 1, 2, 2]));
 
   return [answer1, answer2];
 }; */
+//BRO PARA RETORNAR UN ARRAY DE UN OBJETO YA TE LA U KNOW, ARRAY.FROM
