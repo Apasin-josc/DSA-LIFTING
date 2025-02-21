@@ -33,7 +33,29 @@ Explanation: There are 3 equal row and column pairs:
 */
 
 const equalPairs = (grid) => {
-  console.log(grid);
+  let rowMap = new Map();
+  let count = 0;
+  let n = grid.length;
+
+  //rows
+  for (let i = 0; i < n; i++) {
+    const rowStr = grid[i].join(',');
+    rowMap.set(rowStr, (rowMap.get(rowStr) || 0) + 1);
+  }
+
+  //columns + comparing with the rows
+  for (let j = 0; j < n; j++) {
+    let col = [];
+    for (let i = 0; i < n; i++) {
+      col.push(grid[i][j]);
+    }
+    console.log(col);
+    let key = col.join(',');
+    if (rowMap.has(key)) {
+      count += rowMap.get(key);
+    }
+  }
+  return count;
 };
 
 console.log(
@@ -50,5 +72,12 @@ console.log(
     [1, 4, 4, 5],
     [2, 4, 2, 2],
     [2, 4, 2, 2],
+  ])
+);
+
+console.log(
+  equalPairs([
+    [11, 1],
+    [1, 11],
   ])
 );
