@@ -27,13 +27,21 @@ Explanation: The 2 and -5 collide resulting in -5. The 10 and -5 collide resulti
 const asteroidCollision = (asteroids) => {
   let stack = [];
   for (let i = 0; i < asteroids.length; i++) {
+    //current asteroid
     const asteroid = asteroids[i];
+    //current asteroid equal last asteroid
     const last = stack[stack.length - 1];
+    //if stack is not empty there's no risk of collision
+    //if last is less than zero (is negative <-), the new asteroid is not going to collide
+    //if the actual asteroid is more than zero (is positive ->), the new asteroid won't collide with the last of the stack
+    //5,10 are added directly but the -5 is not added because it can collide with the 10
     if (!stack.length || last < 0 || asteroid > 0) {
       stack.push(asteroid);
     } else if (-asteroid === last) {
+      //case were the asteroids collide and explode both
       stack.pop();
     } else if (-asteroid > last) {
+      //if the actual asteroid is greater than the last one, then the last one is going to explode so we pop it
       stack.pop();
       i--;
     }
