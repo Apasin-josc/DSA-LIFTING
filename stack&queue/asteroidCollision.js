@@ -24,6 +24,21 @@ Input: asteroids = [10,2,-5]
 Output: [10]
 Explanation: The 2 and -5 collide resulting in -5. The 10 and -5 collide resulting in 10. */
 
-const asteroidCollision = (asteroids) => {};
+const asteroidCollision = (asteroids) => {
+  let stack = [];
+  for (let i = 0; i < asteroids.length; i++) {
+    const asteroid = asteroids[i];
+    const last = stack[stack.length - 1];
+    if (!stack.length || last < 0 || asteroid > 0) {
+      stack.push(asteroid);
+    } else if (-asteroid === last) {
+      stack.pop();
+    } else if (-asteroid > last) {
+      stack.pop();
+      i--;
+    }
+  }
+  return stack;
+};
 
 console.log(asteroidCollision([5, 10, -5]));
