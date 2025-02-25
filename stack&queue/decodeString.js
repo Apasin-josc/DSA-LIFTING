@@ -23,6 +23,40 @@ Example 3:
 Input: s = "2[abc]3[cd]ef"
 Output: "abcabccdcdcdef" */
 
-const decodeString = (s) => {};
+// k = how many times we repeat stuff
+// [ = now i need to start storing what i want to repeat
+// ] = better start repeating .repeat()
 
-console.log(decodeString('3[a]2[bc]'));
+const decodeString = (s) => {
+  let stackNums = [];
+  let stackStrs = [];
+  let currentNum = 0;
+  let currentStr = "";
+
+  // 3[a2[c]]
+
+  for (let char of s) {
+    if (!isNaN(char)) {
+      currentNum = `${currentNum}${char}`; //3
+    } else if (char === "[") {
+      stackNums.push(currentNum); //3
+      stackStrs.push(currentStr); // ['']
+      currentStr = "";
+      currentNum = 0;
+    } else if (char === "]") {
+      //when we're closing the brackets, we process what's inside
+      let num = stackNums.pop();
+      let prevStr = stackStrs.pop();
+      //starting to construct the current str with the k number of repeat times
+      currentStr = prevStr + currentStr.repeat(num);
+      //currentStr = stackStrs.pop() + currentStr.repeat(stackNums.pop());
+    } else {
+      //if it's just a character
+      currentStr += char;
+    }
+  }
+  return currentStr;
+};
+
+console.log(decodeString("3[a]2[bc]")); //aaabcbc
+console.log(decodeString("3[a2[c]]"));
