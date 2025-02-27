@@ -40,6 +40,35 @@ And the second senator can't exercise any rights anymore since his right has bee
 And the third senator comes from Dire and he can ban the first senator's right in round 1. 
 And in round 2, the third senator can just announce the victory since he is the only guy in the senate who can vote. */
 
-const predictPartyVictory = () => {};
+const predictPartyVictory = (s) => {
+  const radiantQueue = [];
+  const direQueue = [];
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === "R") {
+      radiantQueue.push(i);
+    } else {
+      direQueue.push(i);
+    }
+  }
+
+  while (radiantQueue.length > 0 && direQueue.length > 0) {
+    //getting the first radiant or dire that needs to vote !, choosing the party leader
+    const radianPos = radiantQueue.shift();
+    const direPos = direQueue.shift();
+
+    //the senator with the smaller position gets to ban the other
+    //the banned senator is removed, and the banning senator gets
+    //to praticipate in the next round (at position + n)
+    if (radianPos < direPos) {
+      //banning ppl
+      radiantQueue.push(radianPos + s.length);
+    } else {
+      direQueue.push(direPos + s.lenght);
+    }
+  }
+  //returning the party that has more remaining votes
+  return radiantQueue.length > 0 ? "Radiant" : "Dire";
+};
 
 console.log(predictPartyVictory("RD"));
+console.log(predictPartyVictory("RDD"));
