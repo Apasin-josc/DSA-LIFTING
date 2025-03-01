@@ -18,4 +18,37 @@ Example 2:
 Input: head = [2,1,3,5,6,4,7]
 Output: [2,3,6,7,1,5,4] */
 
-const oddEvenList = (head) => {};
+const oddEvenList = (head) => {
+  if (head === null) return null;
+
+  let odd = head;
+  let even = head.next;
+  let evenHead = even;
+
+  while (even !== null && even.next !== null) {
+    odd.next = even.next;
+    odd = odd.next;
+    even.next = odd.next;
+    even = even.next;
+  }
+  odd.next = evenHead;
+  return head;
+};
+
+/* 
+            o   e
+            [1, 2, 3, 4, 5]
+                eh
+
+                eh o  e   
+            [1, 2, 3, 4, 5]
+
+                eh    e  o
+            [1, 2, 3, 4, 5]
+
+            odd.next = evenHead
+            5        = 2
+            return head
+
+            
+*/
