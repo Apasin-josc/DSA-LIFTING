@@ -39,6 +39,28 @@ Output: 100001
 Explanation:
 There is only one node with a twin in the linked list having twin sum of 1 + 100000 = 100001. */
 
-const pairSum = (head) => {};
+const pairSum = (head) => {
+  let slow = head;
+  let fast = head;
+  while (fast !== null && fast.next !== null) {
+    fast = fast.next.next;
+    slow = slow.next;
+  }
+  let prev = null;
+  let nextNode = new ListNode();
+  while (slow !== null) {
+    nextNode = slow.next;
+    slow.next = prev;
+    prev = slow;
+    slow = nextNode;
+  }
+  let maxVal = 0;
+  while (prev !== null) {
+    maxVal = Math.max(maxVal, prev.val + head.val);
+    head = head.next;
+    prev = prev.next;
+  }
+  return maxVal;
+};
 
 console.log(pairSum(head));
