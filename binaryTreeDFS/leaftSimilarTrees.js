@@ -39,4 +39,27 @@ Input: root1 = [1,2,3], root2 = [1,3,2]
 Output: false
 */
 
-const leafSimilar = (root1, root2) => {};
+const leafSimilar = (root1, root2) => {
+  const leaves1 = [];
+  const leaves2 = [];
+  //recursive function
+  collectLeaves(root1, leaves1);
+  collectLeaves(root2, leaves2);
+
+  if (leaves1.length !== leaves2.length) return false;
+  for (let i = 0; i < leaves1.length; i++) {
+    if (leaves1[i] !== leaves2[i]) return false;
+  }
+  return true;
+};
+
+const collectLeaves = (root, leaves) => {
+  if (!root) return;
+
+  if (!root.left && !root.right) {
+    leaves.push(root.val);
+    return;
+  }
+  collectLeaves(root.left, leaves);
+  collectLeaves(root.right, leaves);
+};
