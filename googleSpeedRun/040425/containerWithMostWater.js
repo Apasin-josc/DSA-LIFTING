@@ -6,6 +6,7 @@ const maxArea = height => {
     while(i < j){
 
         //NO AL CHAPUSON
+        //choosing between the pointer from i and j
         let currentHeight = Math.min(height[i], height[j]); //aqui sacamos esa vaina
         let currentWidth = j - i;
         let area = currentHeight * currentWidth;
