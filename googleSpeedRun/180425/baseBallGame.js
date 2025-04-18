@@ -52,7 +52,25 @@ Explanation:
 Since the record is empty, the total sum is 0. */
 
 const baseBallGame = ops => {
-    console.log(ops);
+    let record = [];
+    for(let op of ops){
+        if(op === 'C'){
+            record.pop();
+        }else if(op === 'D'){
+            record.push(record[record.length-1] * 2);
+        }else if(op === '+'){
+            record.push(record[record.length-2] + record[record.length-1]);
+        }else{
+            record.push(parseInt(op));
+        }
+    }
+    
+    let result = 0;
+    for(let i = 0; i < record.length; i++){
+        result += record[i];
+    }
+    //return record.reduce((a, b) => a + b, 0);
+    return result;
 };
 
 console.log(baseBallGame(["5","2","C","D","+"]));
