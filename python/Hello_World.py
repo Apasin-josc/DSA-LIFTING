@@ -1,6 +1,5 @@
-birth_year = input('what year were you born ?')
-#birth_year = 1997
-current_year = 2025
-age = current_year - int(birth_year)
-message = f'you are {age} years old'
-print(message)
+username = input('enter username -- ')
+password = input('enter your password -- ')
+hashedPassword = len(password) * '*'
+
+print(f'hello {username}, your password {hashedPassword} is {len(password)} characters long')
