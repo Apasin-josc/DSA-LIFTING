@@ -1,5 +1,7 @@
-username = input('enter username -- ')
-password = input('enter your password -- ')
-hashedPassword = len(password) * '*'
+matrix = [
+    [1,2,3],
+    [2,4,5],
+    [6,7,8]
+]
 
-print(f'hello {username}, your password {hashedPassword} is {len(password)} characters long')
+print(matrix[0][1])
