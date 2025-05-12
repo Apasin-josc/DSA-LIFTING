@@ -1,12 +1,16 @@
-is_magician = True
-is_expert = False
+picture = [
+    [0, 0, 0, 1, 0, 0, 0],
+    [0, 0, 1, 1, 1, 0, 0],
+    [0, 1, 1, 1, 1, 1, 0],
+    [1, 1, 1, 1, 1, 1, 1],
+    [0, 0, 0, 1, 0, 0, 0],
+    [0, 0, 0, 1, 0, 0, 0]
+]
 
-#check if magician AND expert
-if is_magician and is_expert:
-    print('you are a master magician')
-elif is_magician and not is_expert:
-    print('at least youre getting there')
-elif not is_magician:
-    print('you need magic powers')
-else:
-    print('okay')
+for row in picture:
+    for num in row:
+        if num is 0:
+            print(" ", end='')
+        else:
+            print('*', end='')
+    print('')
