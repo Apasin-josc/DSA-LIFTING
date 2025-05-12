@@ -1,11 +1,6 @@
-#Exercise: check for duplicates in list: 
+#parameters
+def say_hello(name, emoji):
+    print(f'helloooooo {name} {emoji}')
 
-some_list = ['a', 'b', 'c', 'b', 'd', 'm', 'n', 'n']
-
-duplicates = []
-for value in some_list:
-    if some_list.count(value) > 1:
-        if value not in duplicates:
-            duplicates.append(value)
-
-print(duplicates)
+#arguments
+say_hello('Omar', '🦔')
