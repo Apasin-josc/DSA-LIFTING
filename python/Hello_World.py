@@ -1,16 +1,11 @@
-picture = [
-    [0, 0, 0, 1, 0, 0, 0],
-    [0, 0, 1, 1, 1, 0, 0],
-    [0, 1, 1, 1, 1, 1, 0],
-    [1, 1, 1, 1, 1, 1, 1],
-    [0, 0, 0, 1, 0, 0, 0],
-    [0, 0, 0, 1, 0, 0, 0]
-]
+#Exercise: check for duplicates in list: 
 
-for row in picture:
-    for num in row:
-        if num is 0:
-            print(" ", end='')
-        else:
-            print('*', end='')
-    print('')
+some_list = ['a', 'b', 'c', 'b', 'd', 'm', 'n', 'n']
+
+duplicates = []
+for value in some_list:
+    if some_list.count(value) > 1:
+        if value not in duplicates:
+            duplicates.append(value)
+
+print(duplicates)
