@@ -29,16 +29,23 @@ word2:    p   q
 merged: a p b q c   d """
 
 def mergeStringsAlternately(word1: str, word2: str) -> str:
-    merged = []
-    i = 0
-    j = 0
-    while i < len(word1) or j < len(word2):
-        if i < len(word1):
-            merged.append(word1[i])
-            i += 1
-        if j < len(word2):
-            merged.append(word2[j])
-            j += 1
-    return ''.join(merged)
+    A, B = len(word1), len(word2)
+    a, b = 0, 0
+    merge = []
+    
+    while a < A and b < B:
+        merge.append(word1[a])
+        a += 1
+        merge.append(word2[b])
+        b += 1
+    
+    while a < A:
+        merge.append(word1[a])
+        a += 1
+    
+    while b < B:
+        merge.append(word2[b])
+        b += 1
+    return ''.join(merge)
 
 print(mergeStringsAlternately("abc", "pqr"))
