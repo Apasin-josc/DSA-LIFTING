@@ -35,24 +35,15 @@ Output: 1994
 Explanation: M = 1000, CM = 900, XC = 90 and IV = 4. 
 """
 def romanToInt(s: str) -> int:
-    dictionary = {
-        'I' : 1,
-        'V' : 5,
-        'X' : 10,
-        'L' : 50,
-        'C' : 100,
-        'D' : 500,
-        'M' : 1000
-    }
-    sum = 0
-    i = 0
-    #print(dictionary.keys())
-    while i < len(s):
-        if i < len(s) - 1 and dictionary[s[i]] > dictionary[s[i+1]]:
-            sum += dictionary[s[i+1]] - dictionary[s[i]]
+    dic = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+    i, sum = 0, 0
+    n = len(s)
+    while(i < n):
+        if i < n-1 and dic[s[i]] < dic[s[i+1]]:
+            sum += dic[s[i+1]] - dic[s[i]]
             i += 2
         else:
-            sum += dictionary[s[i]]
+            sum += dic[s[i]]
             i += 1
     return sum
 

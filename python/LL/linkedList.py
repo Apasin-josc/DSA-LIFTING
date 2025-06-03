@@ -29,7 +29,16 @@ class LinkedList:
             self.tail = new_node
         self.length += 1
         return True
-
+    
+    def pop(self):
+        if self.length == 0:
+            return None
+        elif self.length == 1:
+            self.head = None
+            self.tail = None
+        else:
+            temp = self.head
+                
 
 
     
