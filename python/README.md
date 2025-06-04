@@ -21,3 +21,4 @@ to avoid all the `[Running] python -u "c:\Users\Omar.Sanchez\DSA-LIFTING\python\
 
 ### to check in real time the files
 nodemon --exec "python" --watch . --ext py {nameOfTheProblem}.py
+npm run python-dev -- .\python\roadmap\{nameOfTheProblem}
