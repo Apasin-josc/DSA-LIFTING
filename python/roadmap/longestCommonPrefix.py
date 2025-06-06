@@ -25,7 +25,7 @@ def longestCommonPrefix(strs: List[str]) -> str:
         for s in strs:
             if s[i] != strs[0][i]:
                 return s[:i]
-            i += 1
+        i += 1
 
     return s[:1]
     return s[0][:i]
