@@ -48,3 +48,6 @@ def canConstruct2(ransomNote:str, magazine: str) -> bool:
 
 #print(canConstruct("aa", "aab"))
 print(canConstruct2("aa", "aab"))
+
+#T: O(R + M)
+#S: O(1)
