@@ -17,7 +17,22 @@ Output: 5.00000
 from typing import List
 
 def findMaxAverage(nums:List[int], k:int) -> float:
+    curr_sum = 0
+    n = len(nums)
+
     for i in range(k):
-        print(i)
+        curr_sum += nums[i]
+    
+    max_avg = curr_sum / k
+
+    for i in range(k, n):
+        curr_sum += nums[i]
+        curr_sum -= nums[i-k]
+
+        avg = curr_sum / k
+        max_avg = max(max_avg, avg)
+
+    return max_avg
+        
 
 print(findMaxAverage([1,12,-5,-6,50,3], 4))
