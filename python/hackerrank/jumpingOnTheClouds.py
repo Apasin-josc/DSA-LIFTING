@@ -34,7 +34,13 @@ from typing import List
 
 def jumpingOnClouds(list: List[int]) -> int:
     n = len(list)
-    for i in range(n):
-        print(list[i])
+    i, jumps = 0, 0
+    while i < n - 1:
+        if i + 2 < n and list[i + 2] == 0:
+            i += 2
+        else:
+            i += 1
+        jumps += 1
+    return jumps
 
-jumpingOnClouds([0, 1, 0, 0, 0, 1, 0])
+print(jumpingOnClouds([0, 1, 0, 0, 0, 1, 0]))
