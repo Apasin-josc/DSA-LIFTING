@@ -18,6 +18,25 @@ function backtracking(state):
 
 [1] Choice 
 
+the core choice that we're making at each step
+we need to fill the cells by making *choices*
+A cell seats on a row and a column
+solve(row, col ...){
+    //we can place numbers from 1 - 9 if the cell is empty
+    if(col == board[row].length){
+        
+    }
+
+    for(int value = 1; value <= 9; value++){
+        board[row][col] = value;
+        if(validPlacement(row, col ...)){
+            if(solve(row, col+1, board)){
+                return true;
+            }
+        }
+    }
+}
+
 
 [2] Contraints
 
