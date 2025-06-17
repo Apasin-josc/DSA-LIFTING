@@ -16,14 +16,22 @@ Output: [[1]]
 from typing import List
 
 def permutations(nums:List[int]) -> List[List[int]]:
+
+    ans, sol = [], []
     n = len(nums)
-    res, sol = [], []
-    def backtrack(i):
-        if i == n:
-            res.append(sol[:])
+
+    def backtrack():
+        if n == len(sol):
+            ans.append(sol[:])
             return
         
+        for num in nums:
+            if num not in sol:
+                sol.append(num)
+                backtrack()
+                sol.pop()
+        
+    backtrack()
+    return ans
 
-    backtrack(0)
-    return res
 print(permutations([1,2,3]))
