@@ -11,6 +11,10 @@ Input: s = "rat", t = "car"
 Output: false 
 """
 def isAnagram(s:str, t:str) -> bool:
+
+    if len(s) != len(t):
+        return False
+
     hashMap_s = {}
     for char in s:
         if char in hashMap_s:
