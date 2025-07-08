@@ -7,12 +7,13 @@ The primary operations which are generally a part of the LinkedList class are li
 Ⓜ️ adding a node somewhere in the middle O(n)
 Ⓜ️ removing a node somewhere in the middle O(n)
 Ⓜ️ lookup for a node O(n)
-Ⓜ️ 
+Ⓜ️ print list O(1)
 
-Node:   {
-        "value", 20,
-        "next", None
-        }
+                                Node:   {
+                                        "value", 20,
+                                        "next", None
+                                        }
+
 """
 class Node:
     def __init__(self,value):
@@ -27,7 +28,12 @@ class LinkedList:
         self.tail = new_node
         self.length = 1
 
+    def print_list(self):
+        temp = self.head
+        while temp is not None:
+            print(temp.value)
+            temp = temp.next
 
 
 list = LinkedList(20)
-print(list.head.value)
+list.print_list()
