@@ -22,3 +22,8 @@ gdb --version
 issue with iostream --> `Ctrl+Shift+P` 
 C/C++: Select IntelliSense Configuration...
 ` g++.exe Found at C:/msys64/ucrt64/bin/ `
+
+
+### issue running the code
+check that over the .vscode\tasks.json
+command is pointing to c++ not c --> "command": "C:\\msys64\\ucrt64\\bin\\g++.exe",
